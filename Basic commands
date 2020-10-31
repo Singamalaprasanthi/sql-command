@@ -1,0 +1,86 @@
+mysql> use mysql;
+Database changed
+
+mysql> create table student(studid int,fname varchar(200),lname varchar(200),Email varchar(200),Number int);
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> describe student;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| studid | int(11)      | YES  |     | NULL    |       |
+| fname  | varchar(200) | YES  |     | NULL    |       |
+| lname  | varchar(200) | YES  |     | NULL    |       |
+| Email  | varchar(200) | YES  |     | NULL    |       |
+| Number | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+5 rows in set (0.11 sec)
+
+
+mysql> insert into student (studid,fname,lname,Email,Number)values(1,'pra','reddy','pra@gmail.com',78908790);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into student (studid,fname,lname,Email,Number)values(1,'sand','kaali','sandy@gmail.com',78908790);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from student;
++--------+-------+-------+-----------------+----------+
+| studid | fname | lname | Email           | Number   |
++--------+-------+-------+-----------------+----------+
+|      1 | pra   | reddy | pra@gmail.com   | 78908790 |
+|      1 | sand  | kaali | sandy@gmail.com | 78908790 |
++--------+-------+-------+-----------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into student (studid,fname,lname,Email,Number)values(2,'teja','kanda','teja@gmail.com',6689905);
+Query OK, 1 row affected (0.09 sec)
+mysql> insert into student (studid,fname,lname,Email,Number)values(3,'mahi','kanda','mahi@gmail.com',6689905);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> update student set studid=0 where fname='pra';
+Query OK, 1 row affected (0.16 sec)
+mysql> update student set fname='haritha'where fname='sand';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++--------+---------+-------+-----------------+----------+
+| studid | fname   | lname | Email           | Number   |
++--------+---------+-------+-----------------+----------+
+|      0 | pra     | reddy | pra@gmail.com   | 78908790 |
+|      1 | haritha | kaali | sandy@gmail.com | 78908790 |
+|      2 | teja    | kanda | teja@hmail.com  |  6689905 |
+|      3 | mahi    | kanda | mahi@hmail.com  |  6689905 |
++--------+---------+-------+-----------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> delete from student where studid=0;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from student;
++--------+---------+-------+-----------------+----------+
+| studid | fname   | lname | Email           | Number   |
++--------+---------+-------+-----------------+----------+
+|      1 | haritha | kaali | sandy@gmail.com | 78908790 |
+|      2 | teja    | kanda | teja@hmail.com  |  6689905 |
+|      3 | mahi    | kanda | mahi@hmail.com  |  6689905 |
++--------+---------+-------+-----------------+----------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
