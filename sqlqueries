@@ -1,0 +1,132 @@
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+
+mysql> select Employee.salary from Employee ORDER BY salary;
++--------+
+| salary |
++--------+
+|  10000 |
+|  20000 |
+|  30000 |
+|  40000 |
++--------+
+4 rows in set (0.05 sec)
+
+
+mysql> select Employee.emp_id,Employee.emp_name from Employee ORDER BY emp_name;
+
++--------+-----------+
+| emp_id | emp_name  |
++--------+-----------+
+|    102 | haritha   |
+|    104 | mahi      |
+|    101 | prasanthi |
+|    103 | sandhya   |
++--------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select Employee.emp_id from Employee ORDER BY emp_id desc;
++--------+
+| emp_id |
++--------+
+|    104 |
+|    103 |
+|    102 |
+|    101 |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select Employee.salary from Employee ORDER BY salary desc;
++--------+
+| salary |
++--------+
+|  40000 |
+|  30000 |
+|  20000 |
+|  10000 |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select Employee.salary from Employee ORDER BY salary Asc;
++--------+
+| salary |
++--------+
+|  10000 |
+|  20000 |
+|  30000 |
+|  40000 |
++--------+
+4 rows in set (0.00 sec)
+
+mysql>  select * from Employee LIMIT 2;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
++--------+-----------+--------+
+2 rows in set (0.00 sec)
+
+
+mysql>  select * from Employee ORDER BY emp_id DESC LIMIT 2;
++--------+----------+--------+
+| emp_id | emp_name | salary |
++--------+----------+--------+
+|    104 | mahi     |  40000 |
+|    103 | sandhya  |  30000 |
++--------+----------+--------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from Employee WHERE emp_id>2;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from Employee WHERE emp_id>2 AND salary>30000;
++--------+----------+--------+
+| emp_id | emp_name | salary |
++--------+----------+--------+
+|    104 | mahi     |  40000 |
++--------+----------+--------+
+1 row in set (0.00 sec)
+
+
+mysql> select DISTINCT emp_name from Employee;
++-----------+
+| emp_name  |
++-----------+
+| prasanthi |
+| haritha   |
+| sandhya   |
+| mahi      |
++-----------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
