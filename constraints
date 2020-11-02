@@ -1,0 +1,199 @@
+
+1.NOT NULL :
+
+mysql> create table stud2( sno varchar(10) NOT NULL, sname varchar(10) NOT NULL,course varchar(8) NOT NULL, phno int(10) NOT NULL);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into stud2 values(101,'prasanthi','mca',7730072);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into stud2 values(102,'haritha','mca',7543677);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from stud2;
++-----+-----------+--------+---------+
+| sno | sname     | course | phno    |
++-----+-----------+--------+---------+
+| 101 | prasanthi | mca    | 7730072 |
+| 102 | haritha   | mca    | 7543677 |
++-----+-----------+--------+---------+
+2 rows in set (0.00 sec)
+
+
+
+2.PRIMARY KEY :
+
+mysql> create table stud3(sno int,sname varchar(200),course varchar(200),phno int(100),primary key(sno));
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into stud3 values(101,'prasanthi','mca',776547);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into stud3 values(102,'sandhya','mba',7765437);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from stud3;
++-----+-----------+--------+---------+
+| sno | sname     | course | phno    |
++-----+-----------+--------+---------+
+| 101 | prasanthi | mca    |  776547 |
+| 102 | sandhya   | mba    | 7765437 |
++-----+-----------+--------+---------+
+2 rows in set (0.00 sec)
+
+mysql> insert into stud3 values(NULL,'sandhya','mba',7765437);
+ERROR 1048 (23000): Column 'sno' cannot be null
+
+
+3.unique :
+
+mysql> create table stud4(sno int(100),sname varchar(200),course varchar(100),phno int(100),unique(sname));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> insert into stud4 values(101,'prasanthi','mca',9977567);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into stud4 values(102,'haritha','mca',99776432);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into stud4 values(103,'haritha','mca',998954);
+ERROR 1062 (23000): Duplicate entry 'haritha' for key 'sname'
+
+
+4.check constraint :
+
+mysql> CREATE TABLE Persons (
+    ->     ID int NOT NULL,
+    ->     LastName varchar(255) NOT NULL,
+    ->     FirstName varchar(255),
+    ->     Age int,
+    ->     CHECK (Age>=18)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+
+mysql> insert into persons values(101,'pra','reddy',18);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into persons values(102,'swa','reddy',15);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into persons values(103,'hra','reddy',200);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from persons;
++-----+----------+-----------+------+
+| ID  | LastName | FirstName | Age  |
++-----+----------+-----------+------+
+| 101 | pra      | reddy     |   18 |
+| 102 | swa      | reddy     |   19 |
+| 103 | hra      | reddy     |  200 |
++-----+----------+-----------+------+
+3 rows in set (0.00 sec)
+
+
+
+5.DEFAULT:
+
+mysql> ALTER TABLE Persons
+    -> ALTER FirstName SET DEFAULT 'Singam';
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from persons;
++-----+----------+-----------+------+
+| ID  | LastName | FirstName | Age  |
++-----+----------+-----------+------+
+| 101 | pra      | singam    |   18 |
+| 102 | swa      | singam    |   19 |
+| 103 | hra      | singam    |  200 |
+| 104 | san      | singam    |  20 |
++-----+----------+-----------+------+
+4 rows in set (0.00 sec)
+
+
+
+
+6.FOREIGN KEY :
+
+mysql> create table dept(dno int(100) primary key,dname varchar(200));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into dept values(10,'ECE');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into dept values(20,'CSE');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into dept values(30,'EEE');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>  select * from dept;
++-----+-------+
+| dno | dname |
++-----+-------+
+|  10 | ECE   |
+|  20 | CSE   |
+|  30 | EEE   |
++-----+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table Emp(eno int(100) primary key,ename varchar(200),salary money,dno int foreign key references dept(dno));
+
+mysql> insert into Emp values(101,'anil'20000,);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Emp values(102,'sunil'30000,);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Emp values(103,'reddy'40000,);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> delete from dept where dname='EEE';
+Query OK, 1 row affected (0.04 sec)
+
+mysql>  select * from dept;
++-----+-------+
+| dno | dname |
++-----+-------+
+|  10 | ECE   |
+|  20 | CSE   |
++-----+-------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
