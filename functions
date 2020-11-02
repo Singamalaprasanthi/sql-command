@@ -1,0 +1,104 @@
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select MAX(salary) from Employee;
++-------------+
+| MAX(salary) |
++-------------+
+|       40000 |
++-------------+
+1 row in set (0.05 sec)
+
+mysql> select MIN(salary) from Employee;
++-------------+
+| MIN(salary) |
++-------------+
+|       10000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from Employee;
++-------------+
+| avg(salary) |
++-------------+
+|  25000.0000 |
++-------------+
+1 row in set (0.03 sec)
+
+mysql> select count(salary) from Employee;
++---------------+
+| count(salary) |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from Employee;
++-------------+
+| sum(salary) |
++-------------+
+|      100000 |
++-------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
