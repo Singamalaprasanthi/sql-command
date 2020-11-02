@@ -1,0 +1,62 @@
+
+mysql> create table Employee(emp_id int,emp_name varchar(200),salary int);
+Query OK, 0 rows affected (0.09 sec)
+
+
+mysql> insert into Employee (emp_id,emp_name,salary) values (101,'prasanthi',10000);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> insert into Employee (emp_id,emp_name,salary) values (102,'haritha',20000);
+Query OK, 1 row affected (0.03 sec)
+
+
+mysql> insert into Employee (emp_id,emp_name,salary) values (103,'sandhya',30000);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> insert into Employee (emp_id,emp_name,salary) values (104,'mahi',40000);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select emp_name from Employee union select fname from students;
++-----------+
+| emp_name  |
++-----------+
+| prasanthi |
+| haritha   |
+| sandhya   |
+| mahi      |
++-----------+
+4 rows in set (0.05 sec)
+
+
+mysql> select emp_name from Employee union select studid from students;
++-----------+
+| emp_name  |
++-----------+
+| prasanthi |
+| haritha   |
+| sandhya   |
+| mahi      |
+| 1         |
+| 2         |
+| 3         |
++-----------+
+7 rows in set (0.00 sec)
+
+
+
+
+
