@@ -1,0 +1,93 @@
+mysql> desc students;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| studid | int(11)      | YES  |     | 105     |       |
+| fname  | varchar(200) | YES  |     | NULL    |       |
+| lname  | varchar(200) | YES  |     | NULL    |       |
+| Email  | varchar(500) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into students(studid,fname,lname,Email)values(1,'prasanthi','reddy','pra@gmail.com');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>  insert into students(studid,fname,lname,Email)values(2,'haritha','reddy','hari@gmail.com');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>  insert into students(studid,fname,lname,Email)values(3,'sandhya','reddy','sand@gmail.com');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>  insert into students(studid,fname,lname,Email)values(4,'mahitha','reddy','mahi@gmail.com');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from students;
++--------+-----------+-------+----------------+
+| studid | fname     | lname | Email          |
++--------+-----------+-------+----------------+
+|      1 | prasanthi | reddy | pra@hmail.com  |
+|      2 | haritha   | reddy | hari@gmail.com |
+|      3 | sandhya   | reddy | sand@gmail.com |
+|      4 | mahitha   | reddy | mahi@gmail.com |
++--------+-----------+-------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> update students set studid=0 where fname='sandhya';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update students set fname='mahi' where fname='mahitha';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from students;
++--------+-----------+-------+----------------+
+| studid | fname     | lname | Email          |
++--------+-----------+-------+----------------+
+|      1 | prasanthi | reddy | pra@hmail.com  |
+|      2 | haritha   | reddy | hari@gmail.com |
+|      0 | sandhya   | reddy | sand@gmail.com |
+|      4 | mahi      | reddy | mahi@gmail.com |
++--------+-----------+-------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> update students set studid=3 where fname='sandhya';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from students;
++--------+-----------+-------+----------------+
+| studid | fname     | lname | Email          |
++--------+-----------+-------+----------------+
+|      1 | prasanthi | reddy | pra@hmail.com  |
+|      2 | haritha   | reddy | hari@gmail.com |
+|      3 | sandhya   | reddy | sand@gmail.com |
+|      4 | mahi      | reddy | mahi@gmail.com |
++--------+-----------+-------+----------------+
+4 rows in set (0.00 sec)
+
+
+mysql> delete from students where studid=4;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from students;
++--------+-----------+-------+----------------+
+| studid | fname     | lname | Email          |
++--------+-----------+-------+----------------+
+|      1 | prasanthi | reddy | pra@hmail.com  |
+|      2 | haritha   | reddy | hari@gmail.com |
+|      3 | sandhya   | reddy | sand@gmail.com |
++--------+-----------+-------+----------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
