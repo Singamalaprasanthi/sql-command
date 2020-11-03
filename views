@@ -1,0 +1,140 @@
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE VIEW E1 AS SELECT * FROM Employee;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> select * from E1;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.03 sec)
+
+
+OPERATIONS IN VIEWS :
+
+
+mysql> INSERT INTO E1 VALUES(105,'ISHU',28000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from E1;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
+|    105 | ISHU      |  28000 |
++--------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
+|    105 | ISHU      |  28000 |
++--------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select e_name,salary from E1;
+ERROR 1054 (42S22): Unknown column 'e_name' in 'field list'
+mysql>
+mysql>
+mysql> select emp_name,salary from E1;
++-----------+--------+
+| emp_name  | salary |
++-----------+--------+
+| prasanthi |  10000 |
+| haritha   |  20000 |
+| sandhya   |  30000 |
+| mahi      |  40000 |
+| ISHU      |  28000 |
++-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM E1 WHERE SAL>20000;
+ERROR 1054 (42S22): Unknown column 'SAL' in 'where clause'
+mysql>
+mysql>
+mysql>
+mysql> SELECT * FROM E1 WHERE salary>20000;
++--------+----------+--------+
+| emp_id | emp_name | salary |
++--------+----------+--------+
+|    103 | sandhya  |  30000 |
+|    104 | mahi     |  40000 |
+|    105 | ISHU     |  28000 |
++--------+----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM E1 WHERE salary=20000;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
+|    105 | ISHU      |  28000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> DROP VIEW E1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from E1;
+ERROR 1146 (42S02): Table 'mysql.e1' doesn't exist
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
+|    105 | ISHU      |  28000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
