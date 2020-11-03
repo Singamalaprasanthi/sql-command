@@ -1,0 +1,133 @@
+mysql> select * from Employee;
++--------+-----------+--------+
+| emp_id | emp_name  | salary |
++--------+-----------+--------+
+|    101 | prasanthi |  10000 |
+|    102 | haritha   |  20000 |
+|    103 | sandhya   |  30000 |
+|    104 | mahi      |  40000 |
++--------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from students;
++--------+-----------+-------+----------------+
+| studid | fname     | lname | Email          |
++--------+-----------+-------+----------------+
+|      1 | prasanthi | reddy | pra@hmail.com  |
+|      2 | haritha   | reddy | hari@gmail.com |
+|      3 | sandhya   | reddy | sand@gmail.com |
++--------+-----------+-------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> select -4 from dual;
++----+
+| -4 |
++----+
+| -4 |
++----+
+1 row in set (0.05 sec)
+
+mysql> select -3 from dual;
++----+
+| -3 |
++----+
+| -3 |
++----+
+1 row in set (0.00 sec)
+
+mysql> SELECT salary*5 from Employee;
++----------+
+| salary*5 |
++----------+
+|    50000 |
+|   100000 |
+|   150000 |
+|   200000 |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT salary+200 from Employee;
++------------+
+| salary+200 |
++------------+
+|      10200 |
+|      20200 |
+|      30200 |
+|      40200 |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT salary-100 from Employee;
++------------+
+| salary-100 |
++------------+
+|       9900 |
+|      19900 |
+|      29900 |
+|      39900 |
++------------+
+4 rows in set (0.03 sec)
+
+mysql> SELECT emp_name "prasanthi" from Employee where salary=10000;
++-----------+
+| prasanthi |
++-----------+
+| prasanthi |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT emp_name  from Employee where salary>10000;
++----------+
+| emp_name |
++----------+
+| haritha  |
+| sandhya  |
+| mahi     |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT emp_name  from Employee where salary<10000;
+Empty set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
