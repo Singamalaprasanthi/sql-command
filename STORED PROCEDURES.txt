@@ -1,0 +1,128 @@
+
+EXAMPLE : 1
+
+
+CREATE OR REPLACE PROCEDURE greetings 
+AS 
+BEGIN 
+   dbms_output.put_line('Hello World!'); 
+END; 
+/
+
+Procedure created.
+
+EXECUTE greetings;
+
+(or)
+
+BEGIN 
+   greetings; 
+END; 
+/
+OUTPUT :
+
+Hello World
+PL/SQL procedure successfully completed.
+
+DROP PROCEDURE greetings; 
+
+
+
+EXAMPLE :2
+
+
+DECLARE 
+   a number; 
+   b number; 
+   c number;
+PROCEDURE findMin(x IN number, y IN number, z OUT number) IS 
+BEGIN 
+   IF x < y THEN 
+      z:= x; 
+   ELSE 
+      z:= y; 
+   END IF; 
+END;   
+BEGIN 
+   a:= 23; 
+   b:= 45; 
+   findMin(a, b, c); 
+   dbms_output.put_line(' Minimum of (23, 45) : ' || c); 
+END; 
+/
+
+OUTPUT :
+
+Minimum of (23, 45) : 23  
+PL/SQL procedure successfully completed. 
+
+
+EXAMPLE :3
+
+DECLARE 
+   a number; 
+PROCEDURE squareNum(x IN OUT number) IS 
+BEGIN 
+  x := x * x; 
+END;  
+BEGIN 
+   a:= 23; 
+   squareNum(a); 
+   dbms_output.put_line(' Square of (23): ' || a); 
+END; 
+/
+
+OUTPUT :
+
+Square of (23): 529 
+PL/SQL procedure successfully completed.
+
+
+EXAMPLE : 4
+
+SQL> SELECT * FROM EMP;      
+EMPNO   ENAME      JOB            SALARY     
+  ----------   ----------     ----------       --------------       
+7931          NOOR       P.L.              35000       
+7932          SNH           S.E.              28000       
+7933          SNJ            C.A.             40000       
+7934          ISHU          J.L.              25000 
+
+
+ED PR.SQL
+ 
+CREATE OR REPLACE PROCEDURE FINDEMP (EMPNO1 IN NUMBER) AS   
+ENAME1 EMP.ENAME%TYPE;  
+JOB1 EMP.JOB%TYPE; 
+BEGIN  
+SELECT ENAME,JOB INTO ENAME1,JOB1 FROM EMP WHERE EMPNO=EMPNO1; 
+DBMS_OUTPUT.PUT_LINE('EMPLOYEE IS :'||ENAME1||'  '||JOB1); EXCEPTION  WHEN NO_DATA_FOUND THEN 
+DBMS_OUTPUT.PUT_LINE('NOT FINDING THE EMPNO: '||EMPNO1);
+END; 
+
+@PR
+
+ Procedure created. 
+
+TESTED DATA :
+
+EXECUTE FINDEMP(7932); 
+EMPLOYEE IS :SNH  S.E. 
+PL/SQL procedure successfully completed. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
